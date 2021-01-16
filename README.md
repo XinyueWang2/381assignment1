@@ -36,9 +36,7 @@ Enter your name and student ID at the top, and “sign” your academic integrit
 
 Make sure your section number is correct.
 
-Insert file first_plot.jpeg where it says [insert first_plot.jpeg here]
-
-Continue to add prose and plots to assignment1.docx
+Continue to add prose and the plots you created and saved to assignment1.docx
 
 ## Full software instalation
 
