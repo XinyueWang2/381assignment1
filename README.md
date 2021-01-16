@@ -20,7 +20,7 @@ Unzip the downloaded file somewhere you can find it.
 
 open Rstudio.
 
-click on File in the top menu bar, then New Project, then Existing Directory, then choose the unzipped directory.
+click on File in the top menu bar, then New Project, then Existing Directory, choose the unzipped directory, then create project.
 
 Open file assignment1.R
 
