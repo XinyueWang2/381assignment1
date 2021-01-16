@@ -24,6 +24,8 @@ click on File in the top menu bar, then New Project, then Existing Directory, th
 
 Open file assignment1.R
 
+Make sure your section number is correct (line 11)
+
 Ensure that your cursor is at the top of the file assignment1.R (the file is open in the top-left box in Rstudio). Run the code by repeatedly hitting both control and enter. By doing so you step through the code line by line, and in the bottom left panel you see the results of each line of code. The last line of code creates your first graph, which should show up in the bottom right panel.
 
 There should be no errors (yet ;) when you run the code of assignment1.R. If there are errors, do not proceed further! Get in touch either by email or on the message board.
@@ -31,6 +33,8 @@ There should be no errors (yet ;) when you run the code of assignment1.R. If the
 Open assignment1.docx
 
 Enter your name and student ID at the top, and “sign” your academic integrity statement (replace name here with your name).
+
+Make sure your section number is correct.
 
 Insert file first_plot.jpeg where it says [insert first_plot.jpeg here]
 
@@ -63,6 +67,8 @@ R chooses the name of the folder in which you will be working, but you should ch
 Click Create Project and Rstudio will start in this folder, and all the files you need have been cloned into this folder from github.
 
 Open file assignment1.R
+
+Make sure your section number is correct (line 11)
 
 Ensure that your cursor is at the top of the file assignment1.R (the file is open in the top-left box in Rstudio). Run the code by repeatedly hitting both control and enter. By doing so you step through the code line by line, and in the bottom left panel you see the results of each line of code. The last line of code creates your first graph, which should show up in the bottom right panel.
 

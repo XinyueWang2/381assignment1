@@ -1,0 +1,162 @@
+---
+title: "Assignment 1"
+author: "put your name and ID here"
+output: 
+  pdf_document:
+    number_sections: true
+---
+
+```{r setup, include=FALSE}
+# The R code that is embedded in this Rmarkdown file is included in "chunks": This is the first chunk of R code.
+knitr::opts_chunk$set(echo = TRUE)
+source("assignment1.R") #this is what makes your R code available for inclusion in this document.
+```
+
+**Section # `r paste("0",section,sep="")`**
+
+Students must abide by  [UVic
+  academic regulations](https://www.uvic.ca/calendar/undergrad/index.php#/policy/Sk_0xsM_V?bc=true&bcCurrent=08%20-%20Policy%20on%20Academic%20Integrity&bcGroup=Undergraduate%20Academic%20Regulations&bcItemType=policies)
+ and observe standards of scholarly integrity
+(i.e. no plagiarism or cheating). Therefore, this assignment must be
+taken individually and not with a friend, classmate, or group. You are
+also prohibited from sharing any information about the assignment with
+others. I affirm that I will not give or receive any aid on this assignment 
+and that all work will be my own. **name here**
+
+In environmental economics, perfectly competitive markets are our
+benchmark for efficiency: surplus is maximal under certain conditions:
+
+* buyers and sellers take price as given.
+* the market-maker knows the demand and supply curve (perfect
+  information)
+* there is no government intervention.
+* there are no externalities.
+
+The point of experiment 1 is to investigate how crucial are the
+assumptions of price taking and perfect knowledge. If the model of
+perfect competition does a good job of predicting behaviour even when
+these assumptions are not met, we can be more confident about using
+the model as our efficiency benchmark.
+
+In experiment 1 the market-maker (in our case, the webserver)
+only makes use of the bids and asks when determining price, *not*
+the values and costs which determine the demand and supply
+curves. Furthermore, your bid or ask may be the marginal bid or ask,
+determining either the price paid by demanders or the price received
+by suppliers. In a nutshell, we compare the predictions of perfect
+competititon to the experimental outcomes to understand whether the
+assumptions of price taking and perfect information are substantive or
+merely for analytical convenience.
+
+Recall that in experiment 1 buyers with bids weakly higher than the
+marginal bid purchase the good and suppliers with asks weakly lower
+than the marginal ask sell the good. We investigated two different
+market institutions regarding the prices paid and received.  For
+roughly half the class the price paid by buyers was the marginal bid
+and the price received by sellers was the marginal ask: The difference
+between the marginal bid and marginal ask was the market maker's gain
+per unit.  For the remaining students the prices were reversed: the
+price paid by buyers was the marginal ask and the price received by
+sellers was the marginal bid. The difference between the marginal bid
+and marginal ask was the market maker's loss per unit.
+
+# (5 marks)
+
+**What are the arguments a.k.a. inputs to function `plot_sd`? Hint: `first_plot` is created using function `plot_sd` in file assignment1.R. `first_plot` (below) shows the supply, demand, and outcomes for rounds 1-10 when the market-maker makes a gain.**
+
+```{r first_chunk, echo=FALSE}
+first_plot #this plot has already been created in assignment1.R
+```
+
+# (10 marks)
+
+**Explain what each line of code does in the body of function `plot_sd`. Hint: help on what built-in functions do can by found by typing `?x` in the console, where `x` is the name of the function. Comment out the line of code that adds "hi" to the plot by putting a `#` at the beginning of the line and then save your assignment1.R file. Next, knit your assignment1.Rmd file and make sure the plot above no longer says "hi".** 
+
+# (5 marks)
+
+**Describe the dataframe `mydf`. You can view the dataframe by clicking on it in the top right panel of Rstudio, and it will open in the top left panel.  What are the columns, and what are the rows?**
+
+\pagebreak
+
+# (5 marks)
+
+**Explain what the following code snippet does. Hint: this is covered in https://r4ds.had.co.nz/transform.html.**
+
+```{r note_this_code_is_not_evaluated,just_for_show->, eval=FALSE, echo=TRUE, message=FALSE}
+value_and_cost <- mydf%>% 
+    filter(round==5 | round==15)%>%
+    mutate(session=case_when(round==5 ~ "1-10",
+                             round==15 ~ "11-20"))%>%
+    group_by(marketmaker,session, role, variable)%>% 
+    count(variable)
+```
+
+**Cut and paste the above code snippet into your assignment1.R file and save.  Source the assignment1.R and click on `value_and_cost` in the top right panel. How can dataframe `value_and_cost` be used to check to make sure that function `plot_sd` is plotting the supply and demand correctly? ** 
+
+# (5 marks)
+
+**Use your new and improved version of `plot_sd` to plot the supply, demand, and outcomes for rounds 1-10 when the market-maker makes a loss. Hint: this plot should no longer say "hi".** 
+
+```{r second_chunk, echo=FALSE}
+#second_plot
+```
+
+# (5 marks)
+
+**Use your new and improved version of `plot_sd` to plot the supply, demand, and outcomes for rounds 11-20 when the market-maker makes a gain.**
+
+```{r third_chunk, echo=FALSE}
+#third_plot
+```
+
+# (5 marks)
+
+**Use your new and improved version of `plot_sd` to plot the supply, demand, and outcomes for rounds 11-20 when the market-maker makes a loss.** 
+
+```{r fourth_chunk, echo=FALSE}
+#fourth_plot
+```
+
+# (10 marks)
+
+**What do the above plots allow us to compare: i.e what can we infer from the supply and demand curves, and what do the numbered points show?**
+
+write your answer here...
+
+# (10 marks)
+
+**What is the meaning of the phrase *market depth*? How did market depth vary across the 4 simulations? In particular, what is the relationship between market depth and marketmaker gain vs loss in rounds 1-10 and in rounds 11-20?**
+
+write your answer here...
+
+# (10 marks)
+
+**Did market depth interact with treatments (market-maker loss vs. gain) in determining how close our predictions were to outcomes? Why do you think this is the case?**
+
+write your answer here...
+
+
+# (10 marks)
+
+
+
+**Using dataframe `mydf` make separate scatter-plots of `choice` and `variable` for each combination of `market-maker`, `role`, and different colours for variable `Rounds`. Include in your plots a dashed line with an intercept 0 and a slope of 1 to make the relationship between choice and variable more clear. (In the case of buyers, `variable` is their value of the good, and `choice` is how much they bid. For sellers, `variable` is their cost of production, and `choice` is their asking price. Hint: you will use functions `ggplot`, `aes(x=variable, y=choice, colour=Rounds)`, `geom_jitter()`, `geom_smooth(span=.95, se=FALSE)`, `geom_abline()` and `facet_grid(role~marketmaker)`.  Explain what each of these functions do.**
+
+```{r fifth_chunk, echo=FALSE, message=FALSE}
+#fifth_plot
+```
+
+
+
+# (10 marks)
+
+**How did market depth and `marketmaker` influence the relationship between `variable` and `choice` for buyers and sellers?**
+
+write your answer here...
+
+# (10 marks)
+
+**Suppose that you are a demander.  If you are in the treatment where the market-maker makes a loss, could your bid ever determine the price buyers pay? If you are in the treatment where the market-maker makes a gain, could your bid ever determine the price buyers pay? How does market depth influence the probability your bid will determine the price buyers pay when comparing marketmaker gain vs loss?**
+
+write your answer here...
+
