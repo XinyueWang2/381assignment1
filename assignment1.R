@@ -34,7 +34,7 @@ plot_sd <- function(sesh,mm){
   ggplot()+
     geom_step(data=demand, aes(q,variable), direction = "vh", col="red", alpha=.25, lwd=2)+
     geom_step(data=supply, aes(q,variable), col="blue", direction = "vh", alpha=.25, lwd=2)+
-    geom_text(data=outcomes, aes(q, p, label=round), position="jitter", alpha=.25)+
+    geom_text(data=outcomes, aes(q, p, label=round), position="jitter", size=1.5, width=.1,height=.1, alpha=.5)+
     annotate("text", x = 5, y = 15, label = "Hi!", col="green", size=7)+
     annotate("text", x = tail(demand,1)$q, y = tail(demand,1)$variable, label = "D", col="red", size=7)+
     annotate("text", x = tail(supply,1)$q, y = tail(supply,1)$variable, label = "S", col="blue", size=7)+
