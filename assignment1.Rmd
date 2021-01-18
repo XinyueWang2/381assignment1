@@ -64,6 +64,8 @@ and marginal ask was the market maker's loss per unit.
 
 **What are the arguments a.k.a. inputs to function `plot_sd`? Hint: `first_plot` is created using function `plot_sd` in file assignment1.R. `first_plot` (below) shows the supply, demand, and outcomes for rounds 1-10 when the market-maker makes a gain.**
 
+write your answer here...
+
 ```{r first_chunk, echo=FALSE}
 first_plot #this plot has already been created in assignment1.R
 ```
@@ -72,9 +74,13 @@ first_plot #this plot has already been created in assignment1.R
 
 **Explain what each line of code does in the body of function `plot_sd`. Hint: help on what built-in functions do can by found by typing `?x` in the console, where `x` is the name of the function. Comment out the line of code that adds "hi" to the plot by putting a `#` at the beginning of the line and then save your assignment1.R file. Next, knit your assignment1.Rmd file and make sure the plot above no longer says "hi".** 
 
+write your answer here...
+
 # (5 marks)
 
 **Describe the dataframe `mydf`. You can view the dataframe by clicking on it in the top right panel of Rstudio, and it will open in the top left panel.  What are the columns, and what are the rows?**
+
+write your answer here...
 
 \pagebreak
 
@@ -91,7 +97,11 @@ value_and_cost <- mydf%>%
     count(variable)
 ```
 
+write your answer here...
+
 **Cut and paste the above code snippet into your assignment1.R file and save.  Source the assignment1.R and click on `value_and_cost` in the top right panel. How can dataframe `value_and_cost` be used to check to make sure that function `plot_sd` is plotting the supply and demand correctly? ** 
+
+write your answer here...
 
 # (5 marks)
 
